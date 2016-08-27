@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -14,6 +15,9 @@ namespace TodoAPI
             //Enable CORS
             var policy = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(policy);
+
+            //Setup a contract resolver
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

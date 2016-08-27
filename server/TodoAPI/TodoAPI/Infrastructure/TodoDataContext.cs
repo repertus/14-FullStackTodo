@@ -13,6 +13,8 @@ namespace TodoAPI.Infrastructure
 
         }
 
-        public IDbSet<Models.Todo>Todos { get; set; }
+        //public IDbSet<Models.Todo>Todos { get; set; }//Changed from Todos to Todoes
+
+        public System.Data.Entity.DbSet<TodoAPI.Models.Todo> Todoes { get; set; }
     }
 }

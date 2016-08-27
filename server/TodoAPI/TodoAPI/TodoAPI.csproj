@@ -137,6 +137,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\TodoDataContext.cs" />
+    <Compile Include="Migrations\201608270423585_InitialMigration.cs" />
+    <Compile Include="Migrations\201608270423585_InitialMigration.Designer.cs">
+      <DependentUpon>201608270423585_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608270648514_ChangesToDataContext.cs" />
+    <Compile Include="Migrations\201608270648514_ChangesToDataContext.Designer.cs">
+      <DependentUpon>201608270648514_ChangesToDataContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Todo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -154,6 +163,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608270423585_InitialMigration.resx">
+      <DependentUpon>201608270423585_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608270648514_ChangesToDataContext.resx">
+      <DependentUpon>201608270648514_ChangesToDataContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

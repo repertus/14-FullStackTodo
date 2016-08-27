@@ -46,3 +46,6 @@ C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\Todo
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\bin\System.Web.Cors.dll
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\bin\System.Web.Http.Cors.dll
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\bin\System.Web.Http.Cors.xml
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.InitialMigration.resources
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.csproj.GenerateResource.Cache
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.ChangesToDataContext.resources
