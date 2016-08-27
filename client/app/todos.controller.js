@@ -11,26 +11,7 @@
     function TodoController($filter, todoFactory) {
         var vm = this;
         var todos = {};
-
-		// Matrix for table population testing
-  //   	var todos = [
-		// 	{
-		// 		'task': 'hello',
-		// 		'priority':'c_low'
-		// 	},
-		// 	{
-		// 		'task': 'bye',
-		// 		'priority':'b_medium'
-		// 	},
-		// 	{
-		// 		'task': 'zebra',
-		// 		'priority':'b_medium'
-		// 	},
-		// 	{
-		// 		'task': 'horse',
-		// 		'priority':'a_high'
-		// 	}
-		// ];
+        var edit = {};
 
         activate();
 
@@ -38,20 +19,86 @@
 
         function activate() {
         	// Adds the user input to the table
-			// vm.addNew = function() {
-			// 	vm.todos.push({ 'task' : vm.task, 'priority' : vm.priority});
-			// 	// Clears input after submission
-	  //  			vm.task = null;
-			// };
+			vm.addNew = function() {
+				vm.saving = true;
+				todoFactory.addTodo(vm.newTodo).then(
+					function() {
+						vm.saving = false;
+						alert('Successfully added');
+						// Clears input after submission
+						vm.newTodo.task = null;
+						//Called the get function to insure the list is in sync 
+						//with the database index
+						todoFactory.getTodo().then(
+				    		function (data) {
+				    			vm.todos = data;
+				    		},
+				    		function(error) {
+				                alert('Error getting todo list');
+			    		});
+					},
+					function() {
+						alert('Error saving todo')
+					}
+				);
+			};
 
-
+			// Initiates the todo list from the dB server
 	    	todoFactory.getTodo().then(
 	    		function (data) {
 	    			vm.todos = data;
 	    		},
 	    		function(error) {
-	                console.log(error);
-	    		});
+	                alert('Error getting todo list');
+    		});
+
+	    	// Removes the user input from the todo list
+			vm.removeRow = function(todo){				
+				vm.saving = true;
+				// deletion = angular.toJson(todo);
+				todoFactory.deleteTodo(todo).then(
+					function() {
+						vm.saving = false;
+						alert('Successfully deleted');
+						//Called the get function to insure the list is in sync 
+						//with the database index
+						todoFactory.getTodo().then(
+				    		function (data) {
+				    			vm.todos = data;
+				    		},
+				    		function(error) {
+				                alert('Error getting todo list');
+			    		});
+					},
+					function() {
+						alert('Error deleting todo')
+					}
+				);
+			};
+
+	    	// Updates the user input from the todo list
+			vm.editRow = function(id, todo){				
+				vm.saving = true;
+				edit = angular.toJson(todo); //Removes the $$hashkey syntax
+				todoFactory.editTodo(id, edit).then(
+					function() {
+						vm.saving = false;
+						alert('Successfully updated');
+						//Called the get function to insure the list is in sync 
+						//with the database index
+						todoFactory.getTodo().then(
+				    		function (data) {
+				    			vm.todos = data;
+				    		},
+				    		function(error) {
+				                alert('Error getting todo list');
+			    		});
+					},
+					function() {
+						alert('Error updating todo')
+					}
+				);
+			};
 
 
 
@@ -73,30 +120,6 @@
 		    vm.sortList = sortList;
 		    vm.todos = $filter('orderBy')(vm.todos, vm.sortList, vm.reverse);
 		  	};
-
-		  	// Removes the user input from the todo list
-			vm.removeRow = function(todo){				
-				var index = -1;		
-				var todoArr = eval( vm.todos );
-				for( var i = 0; i < todoArr.length; i++ ) {
-					if( todoArr[i] === todo ) {
-						index = i;
-						break;
-					}
-				}	
-				vm.todos.splice( index, 1 );		
-			};
-
-			// Edits the user input for the todo list
-			vm.editTask = {};
-
-			vm.editRow = function(){
-				vm.editTask = true;
-			};
-
-			vm.updateRow = function() {
-				vm.editTask = false;
-			};
         }
     }
 })();
