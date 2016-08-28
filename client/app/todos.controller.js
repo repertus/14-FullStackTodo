@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('TodoController', TodoController);
 
-    TodoController.$inject = ['$filter', 'todoFactory'];
+    TodoController.$inject = ['$filter', 'todoFactory', 'toastr'];
 
     /* @ngInject */
-    function TodoController($filter, todoFactory) {
+    function TodoController($filter, todoFactory, toastr) {
         var vm = this;
         var todos = {};
         var edit = {};
@@ -24,9 +24,11 @@
 				todoFactory.addTodo(vm.newTodo).then(
 					function() {
 						vm.saving = false;
-						alert('Successfully added');
+						toastr.success('Successfully added', 'Saved');
 						// Clears input after submission
 						vm.newTodo.task = null;
+						vm.newTodo.priority = 0;
+		    			vm.newTodo.groupRefId = 0;
 						//Called the get function to insure the list is in sync 
 						//with the database index
 						todoFactory.getTodo().then(
@@ -34,11 +36,11 @@
 				    			vm.todos = data;
 				    		},
 				    		function(error) {
-				                alert('Error getting todo list');
+				                toastr.error('Error getting todo list', 'Error');
 			    		});
 					},
 					function() {
-						alert('Error saving todo')
+						toastr.error('Error saving todo', 'Error');
 					}
 				);
 			};
@@ -49,7 +51,7 @@
 	    			vm.todos = data;
 	    		},
 	    		function(error) {
-	                alert('Error getting todo list');
+	                toastr.error('Error getting todo list', 'Error');
     		});
 
 	    	// Removes the user input from the todo list
@@ -59,7 +61,7 @@
 				todoFactory.deleteTodo(todo).then(
 					function() {
 						vm.saving = false;
-						alert('Successfully deleted');
+						toastr.success('Successfully removed', 'Deleted');
 						//Called the get function to insure the list is in sync 
 						//with the database index
 						todoFactory.getTodo().then(
@@ -67,11 +69,11 @@
 				    			vm.todos = data;
 				    		},
 				    		function(error) {
-				                alert('Error getting todo list');
+				                toastr.error('Error getting todo list', 'Error');
 			    		});
 					},
 					function() {
-						alert('Error deleting todo')
+						toastr.error('Error deleting todo', 'Error');
 					}
 				);
 			};
@@ -83,7 +85,7 @@
 				todoFactory.editTodo(id, edit).then(
 					function() {
 						vm.saving = false;
-						alert('Successfully updated');
+						toastr.success('Successfully modified', 'Updated');
 						//Called the get function to insure the list is in sync 
 						//with the database index
 						todoFactory.getTodo().then(
@@ -91,17 +93,14 @@
 				    			vm.todos = data;
 				    		},
 				    		function(error) {
-				                alert('Error getting todo list');
+				                toastr.error('Error getting todo list', 'Error');
 			    		});
 					},
 					function() {
-						alert('Error updating todo')
+						toastr.error('Error updating todo', 'Error');
 					}
 				);
 			};
-
-
-
 
 
 			// Forces the list to only ve re-sorted vertically through drag and drop plug-in

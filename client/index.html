@@ -7,8 +7,9 @@
 
 	<!-- bower:css -->
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 	<!-- endbower -->
-
+	
 	<!-- inject:css -->
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/styling.css">
@@ -42,9 +43,20 @@
 						<div class="form-group">	
 							<label for="input-id" class="col-sm-2">Priority</label>
 							<select name="" class="form-control" required="required" ng-model="vm.newTodo.priority">
+								<option value="" style="display: none;">-- Select --</option>
 								<option value="a_high">A high priority item</option>
 								<option value="b_medium">A medium priority item</option>
 								<option value="c_low">A low priority item</option>
+							</select>
+						</div>
+						<div class="form-group">	
+							<label for="input-id" class="col-sm-2">Type</label>
+							<select name="" class="form-control" required="required" ng-model="vm.newTodo.groupRefId">
+								<option value="" style="display: none;">-- Select --</option>
+								<option value=1>Home</option>
+								<option value=2>Work</option>
+								<option value=3>Personal</option>
+								<option value=4>School</option>
 							</select>
 						</div>
 						<div>
@@ -79,23 +91,35 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<table class="table">
+								<thead>
+									<tr>
+										<th>Edit / Delete</th>
+										<th>Type</th>
+										<th>Todo</th>
+										<th>Complete</th>
+									</tr>
+								</thead>
 								<!-- Added ui-sortable into the tbody to call the drag and drop function -->
 								<tbody ui-sortable="sortableOptions" ng-model='vm.todos'>
 									<tr ng-repeat="todo in vm.todos" ng-class="{danger: todo.priority == 'a_high', warning : todo.priority == 'b_medium', success : todo.priority == 'c_low'}">
 										<td width="15%">
-											<button type="button" class="btn btn-danger" ng-click="vm.removeRow(todo.id)" ng-hide="editTask">
-												<span class="glyphicon glyphicon-remove"></span>
-											</button>
 											<button type="button" class="btn btn-success" ng-click="editTask = !editTask" ng-hide="editTask">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
+											<button type="button" class="btn btn-danger" ng-click="vm.removeRow(todo.id)" ng-hide="editTask">
+												<span class="glyphicon glyphicon-remove"></span>
+											</button>									
 											<button type="button" class="btn btn-primary" ng-click="editTask = !editTask; vm.editRow(todo.id,todo)" ng-show="editTask">
 												<span class="glyphicon glyphicon-ok"></span>
 											</button>
 										</td>
-										<td width="70%">
+										<td width='20%' ng-if="todo.groupRefId===1">Home</td>
+										<td width='20%' ng-if="todo.groupRefId===2">Work</td>
+										<td width='20%' ng-if="todo.groupRefId===3">Personal</td>
+										<td width='20%' ng-if="todo.groupRefId===4">School</td>
+										<td width="50%">
 											<div ng-hide="editTask">{{todo.task}}</div>
-											<div ng-show="editTask"><input type="text" ng-model="todo.task" id="editTask"></div>
+											<div ng-show="editTask"><input type="text" ng-model="todo.task" id="editTask" width="300" id="editTextBox"></div>
 										</td>
 										<td width="15%">
 											<div ng-hide="editTask"><label><input type="checkbox" ng-model="todo.complete" ng-click="vm.editRow(todo.id,todo)">Task Complete</label></div>
@@ -129,6 +153,7 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <!-- endbower -->
 
 <!-- inject:js -->

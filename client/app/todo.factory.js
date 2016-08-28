@@ -5,10 +5,10 @@
         .module('myApp')
         .factory('todoFactory', todoFactory);
 
-    todoFactory.$inject = ['$http', '$q'];
+    todoFactory.$inject = ['$http', '$q', 'toastr'];
 
     /* @ngInject */
-    function todoFactory($http, $q) {
+    function todoFactory($http, $q, toastr) {
         var service = {
             getTodo: getTodo,
             addTodo: addTodo,
@@ -30,7 +30,7 @@
                    }
                },
                function(error) {
-                   defer.reject(error);
+                    defer.reject(error);
                }
            );
 

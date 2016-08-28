@@ -161,6 +161,22 @@
     <Compile Include="Migrations\201608272322344_AddingComplete.Designer.cs">
       <DependentUpon>201608272322344_AddingComplete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608280307558_ThirdIntentToAddGroup.cs" />
+    <Compile Include="Migrations\201608280307558_ThirdIntentToAddGroup.Designer.cs">
+      <DependentUpon>201608280307558_ThirdIntentToAddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608280342148_FourtIntentToAddGroup.cs" />
+    <Compile Include="Migrations\201608280342148_FourtIntentToAddGroup.Designer.cs">
+      <DependentUpon>201608280342148_FourtIntentToAddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608281416101_AddingForreignKeyToTodo.cs" />
+    <Compile Include="Migrations\201608281416101_AddingForreignKeyToTodo.Designer.cs">
+      <DependentUpon>201608281416101_AddingForreignKeyToTodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608281436211_FinalDBChange.cs" />
+    <Compile Include="Migrations\201608281436211_FinalDBChange.Designer.cs">
+      <DependentUpon>201608281436211_FinalDBChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Todo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +214,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608272322344_AddingComplete.resx">
       <DependentUpon>201608272322344_AddingComplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608280307558_ThirdIntentToAddGroup.resx">
+      <DependentUpon>201608280307558_ThirdIntentToAddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608280342148_FourtIntentToAddGroup.resx">
+      <DependentUpon>201608280342148_FourtIntentToAddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608281416101_AddingForreignKeyToTodo.resx">
+      <DependentUpon>201608281416101_AddingForreignKeyToTodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608281436211_FinalDBChange.resx">
+      <DependentUpon>201608281436211_FinalDBChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -53,3 +53,7 @@ C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\Todo
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.ChangedCompleteToCapital.resources
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.ResentCompleteToCapital.resources
 C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.AddingComplete.resources
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.ThirdIntentToAddGroup.resources
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.FourtIntentToAddGroup.resources
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.AddingForreignKeyToTodo.resources
+C:\Users\robertmartindelcampo\Documents\dev\14-FullStackTodo\server\TodoAPI\TodoAPI\obj\Debug\TodoAPI.Migrations.FinalDBChange.resources

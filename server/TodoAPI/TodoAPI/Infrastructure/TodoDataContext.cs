@@ -10,7 +10,8 @@ namespace TodoAPI.Infrastructure
     {
         public TodoDataContext() : base("MyTodoDatabase")
         {
-
+            Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         //public IDbSet<Models.Todo>Todos { get; set; }//Changed from Todos to Todoes

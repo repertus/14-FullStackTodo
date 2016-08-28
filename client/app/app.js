@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('myApp', ['ui.sortable']);
+        .module('myApp', ['ui.sortable', 'toastr']);
 })();
