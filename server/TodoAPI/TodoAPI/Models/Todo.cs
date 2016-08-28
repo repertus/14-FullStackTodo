@@ -15,6 +15,8 @@ namespace TodoAPI.Models
         public string Task { get; set; }
         [Required]
         public string Priority { get; set; }
+        [Required]
+        public bool Complete { get; set; }
     }
 
 }

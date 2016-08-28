@@ -46,6 +46,9 @@
 								<option value="b_medium">A medium priority item</option>
 								<option value="c_low">A low priority item</option>
 							</select>
+						</div>
+						<div>
+							<input type="hidden" ng-model="vm.newTodo.complete" ng-init="vm.newTodo.complete = false">
 						</div>	
 						<div class="col-sm-6">
 							<input type="submit" value="Submit" class="btn btn-primary" id="submit_Button">
@@ -90,9 +93,12 @@
 												<span class="glyphicon glyphicon-ok"></span>
 											</button>
 										</td>
-										<td width="85%">
+										<td width="70%">
 											<div ng-hide="editTask">{{todo.task}}</div>
 											<div ng-show="editTask"><input type="text" ng-model="todo.task" id="editTask"></div>
+										</td>
+										<td width="15%">
+											<div ng-hide="editTask"><label><input type="checkbox" ng-model="todo.complete" ng-click="vm.editRow(todo.id,todo)">Task Complete</label></div>
 										</td>
 									</tr>
 								</tbody>

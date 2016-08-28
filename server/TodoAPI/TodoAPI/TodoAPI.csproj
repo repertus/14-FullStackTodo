@@ -145,6 +145,22 @@
     <Compile Include="Migrations\201608270648514_ChangesToDataContext.Designer.cs">
       <DependentUpon>201608270648514_ChangesToDataContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608272313451_IncludedCompleteOption.cs" />
+    <Compile Include="Migrations\201608272313451_IncludedCompleteOption.Designer.cs">
+      <DependentUpon>201608272313451_IncludedCompleteOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608272316253_ChangedCompleteToCapital.cs" />
+    <Compile Include="Migrations\201608272316253_ChangedCompleteToCapital.Designer.cs">
+      <DependentUpon>201608272316253_ChangedCompleteToCapital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608272318276_ResentCompleteToCapital.cs" />
+    <Compile Include="Migrations\201608272318276_ResentCompleteToCapital.Designer.cs">
+      <DependentUpon>201608272318276_ResentCompleteToCapital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608272322344_AddingComplete.cs" />
+    <Compile Include="Migrations\201608272322344_AddingComplete.Designer.cs">
+      <DependentUpon>201608272322344_AddingComplete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Todo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +186,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608270648514_ChangesToDataContext.resx">
       <DependentUpon>201608270648514_ChangesToDataContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608272313451_IncludedCompleteOption.resx">
+      <DependentUpon>201608272313451_IncludedCompleteOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608272316253_ChangedCompleteToCapital.resx">
+      <DependentUpon>201608272316253_ChangedCompleteToCapital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608272318276_ResentCompleteToCapital.resx">
+      <DependentUpon>201608272318276_ResentCompleteToCapital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608272322344_AddingComplete.resx">
+      <DependentUpon>201608272322344_AddingComplete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
